@@ -1,27 +1,38 @@
 import PropTypes from 'prop-types'
-import DefaultPicture from '../../assets/profile.png'
-import colors from '../../utils/style/colors'
 import styled from 'styled-components'
+import colors from '../../utils/style/colors'
+import DefaultPicture from '../../assets/profile.png'
 
 const CardLabel = styled.span`
   color: #5843e4;
   font-size: 22px;
-  font-weight: bold;
+  font-weight: normal;
+  padding-left: 15px;
 `
+
+const CardTitle = styled.span`
+  color: black;
+  font-size: 22px;
+  font-weight: normal;
+  align-self: center;
+`
+
 const CardImage = styled.img`
-  height: 80px;
-  width: 80px;
+  height: 150px;
+  width: 150px;
+  align-self: center;
   border-radius: 50%;
 `
+
 const CardWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
+  justify-content: space-around;
   padding: 15px;
   background-color: ${colors.backgroundLight};
   border-radius: 30px;
-  width: 350px;
+  width: 300px;
+  height: 300px;
   transition: 200ms;
   &:hover {
     cursor: pointer;
@@ -34,7 +45,7 @@ function Card({ label, title, picture }) {
     <CardWrapper>
       <CardLabel>{label}</CardLabel>
       <CardImage src={picture} alt="freelance" />
-      <span>{title}</span>
+      <CardTitle>{title}</CardTitle>
     </CardWrapper>
   )
 }
@@ -50,4 +61,5 @@ Card.defaultProps = {
   title: '',
   picture: DefaultPicture,
 }
+
 export default Card
