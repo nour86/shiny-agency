@@ -1,5 +1,20 @@
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
+import darkLogo from '../../assets/dark-logo.png'
+
+const StyledHeader = styled.header`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+`
+
+const StyledNav = styled.nav`
+  text-align: end;
+  padding: 30px;
+`
+const StyledLogo = styled.img`
+  align-self: start;
+`
 
 const StyledLink = styled(Link)`
   padding: 15px;
@@ -12,15 +27,16 @@ const StyledLink = styled(Link)`
 `
 function Header() {
   return (
-    <nav>
-      <StyledLink to="/" $isFullLink>
-        Accueil
-      </StyledLink>
-      <StyledLink to="/survey/1" $isFullLink>
-        Questionnaire
-      </StyledLink>
-      <StyledLink to="/freelances">Profils</StyledLink>
-    </nav>
+    <StyledHeader>
+      <StyledLogo src={darkLogo} />
+      <StyledNav>
+        <StyledLink to="/" $isFullLink>
+          Accueil
+        </StyledLink>
+        <StyledLink to="/survey/1">Questionnaire</StyledLink>
+        <StyledLink to="/freelances">Profils</StyledLink>
+      </StyledNav>
+    </StyledHeader>
   )
 }
 
